@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DPG</title>
+    <link rel='stylesheet' href='/stylesheets/adminDashboard.css' />
+  </head>
+  <body>
+    <div id="MainDiv">
+      <div id="HeaderDiv">
+        <div id="img1">
+          <a href="/adminhome">
+            <img src="/images/create_form.svg"/>
+            <p>Create Form</p>
+          </a>
+        </div>
+        <div id="img2">
+          <a href="/adminhome/createMember">
+            <img src="/images/create_member.svg"/>
+            <p>Create Member</p>
+          </a>
+        </div>
+          <form method="GET" action="/adminlogout">
+            <button type="submit" id="Btn-Logout">Logout</button>
+          </form>
+      </div>
+      <div id="CenterDiv">
+        <div>
+          <h3 class="BorderBottom">Create Form</h3>
+          <div class="createformgrid">
+            <div class="boxdiv">
+              <div class="plusbox">
+                <a href="/adminhome/createForm/addForm">
+                  <img src='/images/plus.svg' />
+                </a>
+              </div>
+            </div>
+          </div>
+          <h3 class="BorderBottom">Recent Form</h3>
+            <div class="cmgrid2">
+              <% forms.forEach(function(form, index){ %>
+                  <div class="boxdiv" id="sidecard">
+                    <div class="memberimages">
+                    </div>
+                    <div class="membercontent"> 
+                      <h3>Form <%=index+1%></h3>
+                      <p>Name: <%=form.formname%></p>
+                      <p>Fields: <%=form.fields%></p>
+                      <p>Zone: <%=form.zone%></p>
+                      <div class="extrabox" id="<%-index%>">
+                        <p class="tooltip"><a href="/adminhome/updateform?zone=<%=form.zone%>&name=<%=form.formname%>"><span><img src="/images/update.svg"><span class="tooltiptext">Update</span></span></a></p>
+                        <p class="tooltip"><a href="/adminhome/responses?zone=<%=form.zone%>&name=<%=form.formname%>"><span><img src="/images/responses.svg"><span class="tooltiptext">Responses</span></span></a></p>
+                        <p class="tooltip"><a href="/adminhome/deleteform?zone=<%=form.zone%>&name=<%=form.formname%>"><span><img src="/images/trash.svg"><span class="tooltiptext">Delete</span></span></a></p>
+                      </div>
+                    </div>
+                  </div>
+              <% }) %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+input,
+button {
+  cursor: pointer;
+}
+
+body {
+  min-height: 97vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  margin-top: 1%;
+  width: 150%;
+  height: 2em;
+}
+
+#ImageDiv {
+  text-align: center;
+  padding-left: 50%;
+}
+
+#ImageDiv img {
+  width: 100%;
+}
+
+#FormDiv {
+  margin-top: 20%;
+}
+
+#Btn-Login {
+  display: block;
+  width: 155%;
+  background-color: #239fdb;
+  color: white;
+  border: none;
+  height: 2em;
+}
+
+.LabelInput {
+  padding: 5% 0 7% 0;
+}

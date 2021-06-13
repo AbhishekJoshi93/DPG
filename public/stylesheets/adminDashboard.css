@@ -1,0 +1,164 @@
+input,
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#HeaderDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: center;
+  background-color: white;
+  align-items: baseline;
+  margin-right: 10%;
+  padding: 0% 5% 0 5%;
+}
+
+#img1,
+#img2 {
+  padding-left: 1%;
+}
+
+#img1 img {
+  width: 40px;
+  margin-bottom: -20%;
+}
+
+#img2 img {
+  width: 40px;
+  margin-bottom: -10%;
+}
+
+#Btn-Logout {
+  background-color: rgba(35, 159, 219, 0.2);
+  color: #239fdb;
+  border-color: #239fdb;
+  padding: 20% 125% 20% 125%;
+  border-radius: 5px;
+}
+
+.BorderBottom {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+#CenterDiv {
+  background-color: #f6f6f6;
+  padding: 2% 5% 2% 5%;
+  min-height: 77vh;
+}
+
+.boxdiv {
+  background-color: white;
+  margin: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+}
+
+.createformgrid {
+  display: flex;
+}
+
+.boxdiv .plusbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 175px;
+  height: 200px;
+}
+
+.membercontent {
+  background-color: rgba(35, 159, 219, 0.2);
+  padding: 2px 20px 2px 20px;
+}
+
+.membercontent p {
+  line-height: 20%;
+}
+
+.justspacing {
+  margin: 10px;
+}
+
+.cmgrid2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.boxdiv .memberimages {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+#sidecard {
+  height: 100%;
+  min-width: 175px;
+  min-height: 200px;
+}
+
+.boxdiv .memberimages {
+  height: 100px;
+}
+
+.dots {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dots p {
+  cursor: pointer;
+}
+
+.extrabox {
+  margin: 2%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.extrabox img {
+  width: 25px;
+}
+
+#deleteid {
+  background-color: #db2323;
+  padding: 20px;
+  width: 65%;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  margin: 5px;
+  width: 120px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip .tooltiptext {
+  width: 120px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

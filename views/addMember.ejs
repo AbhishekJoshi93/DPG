@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DPG</title>
+    <link rel='stylesheet' href='/stylesheets/addMember.css' />
+  </head>
+  <body>
+    <div id="MainDiv">
+      <div id="HeaderDiv">
+        <div id="img1">
+          <a href="/adminhome">
+            <img src="/images/create_form.svg"/>
+            <p>Create Form</p>
+          </a>
+        </div>
+        <div id="img2">
+          <a href="/adminhome/createMember">
+            <img src="/images/create_member.svg"/>
+            <p>Create Member</p>
+          </a>
+        </div>
+          <form method="GET" action="/adminlogout">
+            <button type="submit" id="Btn-Logout">Logout</button>
+          </form>
+      </div>
+      <div id="CenterDiv">
+        <div id="FormDiv">
+          <form action="/adminhome/createMember/addMember" method="post" class="boxdiv">
+            <h1>Add New Member</h1>
+            <div class="LabelInput">
+              <label for="username">Enter ID:</label><br>
+              <input type="text" name="username" placeholder="Enter ID" autocomplete="off" required><br>
+            </div>
+            <div class="LabelInput">
+              <label for="password">Password:</label><br>
+              <input type="password" name="password" placeholder="Password" autocomplete="off" required><br>
+            </div>
+            <div class="LabelInput">
+              <label for="zone">Enter Zone:</label><br>
+              <input type="text" name="zone" placeholder="Zone" autocomplete="off" required><br>
+            </div>
+            <button type="submit" id="Btn-Login">Create Member</button>
+          </form>
+        </div>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+input,
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#HeaderDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: center;
+  background-color: white;
+  align-items: baseline;
+  margin-right: 10%;
+  padding: 0% 5% 0 5%;
+}
+
+#img1,
+#img2 {
+  padding-left: 1%;
+}
+
+#img1 img {
+  width: 40px;
+  margin-bottom: -20%;
+}
+
+#img2 img {
+  width: 40px;
+  margin-bottom: -10%;
+}
+
+#Btn-Logout {
+  background-color: rgba(35, 159, 219, 0.2);
+  color: #239fdb;
+  border-color: #239fdb;
+  padding: 20% 125% 20% 125%;
+  border-radius: 5px;
+}
+
+.BorderBottom {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+#CenterDiv {
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 97vh;
+}
+
+#CenterDiv h1 {
+  text-align: center;
+}
+
+.boxdiv {
+  background-color: white;
+  width: 20%;
+  padding: 50px;
+}
+
+.cmgrid {
+  display: flex;
+  margin: 5px;
+}
+
+input {
+  height: 2em;
+  min-width: 20px;
+}
+
+#ImageDiv {
+  text-align: center;
+  padding-left: 50%;
+}
+
+#ImageDiv img {
+  width: 100%;
+}
+
+#FormDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+}
+
+#Btn-Login {
+  display: block;
+  width: 103%;
+  background-color: #239fdb;
+  color: white;
+  border: none;
+  height: 2em;
+}
+
+.LabelInput {
+  padding: 0% 0 3% 0;
+  display: flex;
+  align-items: baseline;
+}
+
+.LabelInput label {
+  padding-right: 3px;
+}
+
+.LabelInput div {
+  flex: 1;
+}

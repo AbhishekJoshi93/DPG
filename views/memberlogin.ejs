@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DPG</title>
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+  </head>
+  <body>
+    <div id="MainDiv">
+      <div>
+        <div id="ImageDiv">
+          <img src="/images/member.svg" />
+        </div>
+        <div id="FormDiv">
+          <form action="/memberlogin" method="post">
+            <div class="LabelInput">
+              <label for="username">Enter your ID:</label><br>
+              <input type="text" name="username" placeholder="Enter ID" autocomplete="off" required><br>
+            </div>
+            <div class="LabelInput">
+              <label for="password">Password:</label><br>
+              <input type="password" name="password" placeholder="Password" autocomplete="off" required><br>
+            </div>
+            <button type="submit" id="Btn-Login">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

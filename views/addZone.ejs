@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DPG</title>
+    <link rel='stylesheet' href='/stylesheets/addZone.css' />
+  </head>
+  <body>
+    <div id="MainDiv">
+      <div id="HeaderDiv">
+        <div id="img1">
+          <a href="/adminhome">
+            <img src="/images/create_form.svg"/>
+            <p>Create Form</p>
+          </a>
+        </div>
+        <div id="img2">
+          <a href="/adminhome/createMember">
+            <img src="/images/create_member.svg"/>
+            <p>Create Member</p>
+          </a>
+        </div>
+          <form method="GET" action="/adminlogout">
+            <button type="submit" id="Btn-Logout">Logout</button>
+          </form>
+      </div>
+      <div id="CenterDiv">
+        <div id="FormDiv">
+          <form action="/adminhome/createForm/addForm/addZone" method="post" class="boxdiv">
+            <h1>Select Zone</h1>
+            <div class="LabelInput">
+                <select name="zone" id="zoneId">
+                  <option selected>Zone</option>
+                    <% data.zone.filter(val => !data.form.includes(val)).forEach(function(zone){ %>
+                    <option value="<%=zone%>"><%=zone%></option>
+                    <% }) %>
+                </select>
+            </div>
+            <input type="hidden" value="<%=formId%>" name="Id" >
+            <button type="submit" id="Btn-Login">Send</button>
+          </form>
+        </div>
+      </div>
+      <div>
+      </div>
+    </div>
+  </body>
+</html>

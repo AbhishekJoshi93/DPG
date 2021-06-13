@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DPG</title>
+    <link rel='stylesheet' href='/stylesheets/responses.css' />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div id="MainDiv">
+      <div id="HeaderDiv">
+        <div id="img1">
+          <a href="/adminhome">
+            <img src="/images/create_form.svg"/>
+            <p>Create Form</p>
+          </a>
+        </div>
+        <div id="img2">
+          <a href="/adminhome/createMember">
+            <img src="/images/create_member.svg"/>
+            <p>Create Member</p>
+          </a>
+        </div>
+          <form method="GET" action="/adminlogout">
+            <button type="submit" id="Btn-Logout">Logout</button>
+          </form>
+      </div>
+      <div id="CenterDiv">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Password</th>
+              <th>Zone</th>
+              <% for(var x = 0; x < object.totalfields; x++){ %>
+                  <% if((Object.keys(object.data)[x]).substring(0,4) == 'Text'){ %>
+                      <th><%=object.data[Object.keys(object.data)[x]]%></th>
+                    <% }else if((Object.keys(object.data)[x]).substring(0,5) == 'Radio'){ %>
+                      <th><%=object.data[Object.keys(object.data)[x]]%></th>
+                      <% x = x+2 %>
+                    <% } %>
+              <% } %>
+            </tr>
+          </thead>
+          <tbody>
+            <% object.response.forEach(function(entry, index){ %>
+              <tr>
+                <% for(var y = 0; y < (object.fields+3); y++){ %>
+                  <% if(entry[Object.keys(entry)[y]] == undefined){ %>
+                    <th>-</th>
+                  <% }else{ %>
+                    <th><%=entry[Object.keys(entry)[y]]%></th>
+                  <% } %>
+                <% } %>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+    </script>
+  </body>
+</html>

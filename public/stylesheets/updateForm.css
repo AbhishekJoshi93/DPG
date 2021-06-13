@@ -1,0 +1,108 @@
+input,
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#HeaderDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: center;
+  background-color: white;
+  align-items: baseline;
+  margin-right: 10%;
+  padding: 0% 5% 0 5%;
+}
+
+#img1,
+#img2 {
+  padding-left: 1%;
+}
+
+#img1 img {
+  width: 40px;
+  margin-bottom: -20%;
+}
+
+#img2 img {
+  width: 40px;
+  margin-bottom: -10%;
+}
+
+#Btn-Logout {
+  background-color: rgba(35, 159, 219, 0.2);
+  color: #239fdb;
+  border-color: #239fdb;
+  padding: 20% 125% 20% 125%;
+  border-radius: 5px;
+}
+
+.BorderBottom {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+#CenterDiv {
+  background-color: #f6f6f6;
+  padding: 2% 5% 2% 5%;
+  min-height: 77vh;
+}
+
+.boxdiv {
+  background-color: white;
+  width: 50%;
+  margin: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+  padding: 25px 50px 25px 50px;
+}
+
+.LabelInput {
+  padding: 5% 0 7% 0;
+}
+
+.ElementClass {
+  margin: 1% 2% 1% 2%;
+}
+
+.buttongroup {
+  margin: 0 2%;
+  background-color: #239fdb;
+  color: white;
+  border: none;
+}
+
+input,
+select {
+  margin-top: 1%;
+  width: 95%;
+  height: 2em;
+}
+
+#box3 {
+  display: block;
+}
+
+#box3 .buttonsend,
+#box2 .buttonadd {
+  display: block;
+  width: 95%;
+  height: 2em;
+}
+
+#box3 select,
+#box2 select {
+  margin: 2%;
+}
+
+.ElementClass0 {
+  margin: 0 5% 1% 5%;
+}
+
+.flexclass {
+  display: flex;
+  flex-direction: row;
+}

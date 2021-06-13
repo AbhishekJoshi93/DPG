@@ -1,0 +1,92 @@
+input,
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#HeaderDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: center;
+  background-color: white;
+  align-items: baseline;
+  margin-right: 10%;
+  padding: 0% 5% 0 5%;
+}
+
+#img1,
+#img2 {
+  padding-left: 1%;
+}
+
+#img1 img {
+  width: 40px;
+  margin-bottom: -20%;
+}
+
+#img2 img {
+  width: 40px;
+  margin-bottom: -10%;
+}
+
+#Btn-Logout {
+  background-color: rgba(35, 159, 219, 0.2);
+  color: #239fdb;
+  border-color: #239fdb;
+  padding: 20% 125% 20% 125%;
+  border-radius: 5px;
+}
+
+#CenterDiv {
+  background-color: #f6f6f6;
+  padding: 2% 5% 2% 5%;
+  min-height: 77vh;
+}
+
+.boxdiv {
+  background-color: white;
+  margin: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #239fdb;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #239fdb;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #239fdb;
+}

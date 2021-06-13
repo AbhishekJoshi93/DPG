@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DPG</title>
+    <link rel='stylesheet' href='/stylesheets/createMember.css' />
+  </head>
+  <body>
+    <div id="MainDiv">
+      <div id="HeaderDiv">
+        <div id="img1">
+          <a href="/adminhome">
+            <img src="/images/create_form.svg"/>
+            <p>Create Form</p>
+          </a>
+        </div>
+        <div id="img2">
+          <a href="/adminhome/createMember">
+            <img src="/images/create_member.svg"/>
+            <p>Create Member</p>
+          </a>
+        </div>
+          <form method="GET" action="/adminlogout">
+            <button type="submit" id="Btn-Logout">Logout</button>
+          </form>
+      </div>
+      <div id="CenterDiv">
+        <div>
+          <h3 class="BorderBottom">Members</h3>
+          <div class="cmgrid">
+            <div class="boxdiv">
+              <div class="plusbox">
+                <a href="/adminhome/createMember/addMember">
+                  <img src='/images/plus.svg' />
+                </a>
+              </div>
+            </div>
+            <div class="cmgrid2">
+              <% memberobj.forEach(function(member, index){ %>
+                <div class="boxdiv">
+                  <div class="memberimages">
+                    <img src="/images/member.svg" />
+                  </div>
+                  <div class="membercontent"> 
+                    <h3>Member <%=index+1%></h3>
+                    <p>Username: <%=member.username%></p>
+                    <p>Password: <%=member.password%></p>
+                    <p>Zone: <%=member.zone%></p>
+                  </div>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

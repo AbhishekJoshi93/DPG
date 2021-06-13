@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DPG</title>
+    <link rel='stylesheet' href='/stylesheets/updateForm.css' />
+    <script language="Javascript">
+      var x = "<%=object.fields%>"
+      var y = "<%=object.totalfields%>"
+
+      function whensubmit(){
+        var elementfields = document.createElement("input");
+        elementfields.setAttribute("type", 'hidden');
+        elementfields.setAttribute("value", x);
+        elementfields.setAttribute("name", 'fields');
+        elementfields.setAttribute("autocomplete", 'off');
+        
+        var foo = document.getElementById("fooBar");
+        foo.appendChild(elementfields)
+
+        var elementtotalfields = document.createElement("input");
+        elementtotalfields.setAttribute("type", 'hidden');
+        elementtotalfields.setAttribute("value", y);
+        elementtotalfields.setAttribute("name", 'totalfields');
+        elementtotalfields.setAttribute("autocomplete", 'off');
+        
+        var foo = document.getElementById("fooBar");
+        foo.appendChild(elementtotalfields)
+      }
+
+      function add(type) {
+      
+      x++
+      if(type === 'text'){
+        y++
+        var element = document.createElement("input");
+        element.setAttribute("type", 'text');
+        element.setAttribute("placeholder", 'Text Field-'+x);
+        element.setAttribute("name", 'Text'+x);
+        element.setAttribute("autocomplete", 'off');
+        
+        element.classList.add('ElementClass')
+        var foo = document.getElementById("fooBar");
+        foo.appendChild(element);
+      }else if(type == 'radio'){
+        y++
+        y++
+        y++
+        var foo = document.getElementById("fooBar");
+
+        var element = document.createElement("input");
+        element.setAttribute("type", 'text');
+        element.setAttribute("placeholder", 'Radio Field-'+x);
+        element.setAttribute("name", 'Radio'+x);
+        element.setAttribute("autocomplete", 'off');
+        foo.appendChild(element);
+
+        var element1 = document.createElement("input");
+        element1.setAttribute("type", 'text');
+        element1.setAttribute("placeholder", 'Option 1');
+        element1.setAttribute("name", 'Radio'+x+'1');
+        element1.setAttribute("autocomplete", 'off');
+        foo.appendChild(element1);
+
+        var element2 = document.createElement("input");
+        element2.setAttribute("type", 'text');
+        element2.setAttribute("placeholder", 'Option 2');
+        element2.setAttribute("name", 'Radio'+x+'2');
+        element2.setAttribute("autocomplete", 'off');
+        foo.appendChild(element2);
+
+        element.classList.add('ElementClass')
+        element1.classList.add('ElementClass0')
+        element2.classList.add('ElementClass0')
+
+      }
+    }
+        </script>
+  </head>
+  <body>
+    <div id="MainDiv">
+      <div id="HeaderDiv">
+        <div id="img1">
+          <a href="/adminhome">
+            <img src="/images/create_form.svg"/>
+            <p>Create Form</p>
+          </a>
+        </div>
+        <div id="img2">
+          <a href="/adminhome/createMember">
+            <img src="/images/create_member.svg"/>
+            <p>Create Member</p>
+          </a>
+        </div>
+          <form method="GET" action="/adminlogout">
+            <button type="submit" id="Btn-Logout">Logout</button>
+          </form>
+        </div>
+        <div id="CenterDiv">
+            <form method="POST" action="/adminhome/updateform" id="FormDiv" onsubmit="whensubmit()">
+                <div>
+                    <div class="boxdiv" id="box1">
+                        <div>
+                            <input type="hidden" name="zone" value="<%=object.zone%>">
+                            <label for="formname">Enter Form Name:</label><br>
+                            <input type="text" name="formname" value="<%=object.formname%>" placeholder="Form Name" autocomplete="off" required><br>
+                        </div>
+                    </div>
+                    <div class="boxdiv" id="box0">
+                    
+                        <% for(var x = 0; x < object.totalfields; x++){ %>
+                            <div>
+                              <% if((Object.keys(object.data)[x]).substring(0,4) == 'Text'){ %>
+                                <div>
+                                    <input class="ElementClass" type="text" value="<%=object.data[Object.keys(object.data)[x]]%>" name="<%=Object.keys(object.data)[x]%>" id="<%=Object.keys(object.data)[x]%>" placeholder="Enter <%=Object.keys(object.data)[x]%>" autocomplete="off">
+                                  
+                                </div>
+                                <% }else if((Object.keys(object.data)[x]).substring(0,5) == 'Radio'){ var r = x %>
+                                  <div>
+                                    <div>
+                                      <input class="ElementClass" type="text" value="<%=object.data[Object.keys(object.data)[x]]%>" name="<%=Object.keys(object.data)[x]%>" id="<%=Object.keys(object.data)[x]%>" placeholder="Enter <%=Object.keys(object.data)[x]%>" autocomplete="off">
+                                    </div>
+                                    <% x++ %>
+                                    <div>
+                                      <input class="ElementClass0" type="text" value="<%=object.data[Object.keys(object.data)[x]]%>" name="<%=Object.keys(object.data)[x]%>" id="<%=Object.keys(object.data)[x]%>" placeholder="Option 1" autocomplete="off">
+                                    </div>
+                                      <% x++ %>
+                                    <div>
+                                      <input class="ElementClass0" type="text" value="<%=object.data[Object.keys(object.data)[x]]%>" name="<%=Object.keys(object.data)[x]%>" id="<%=Object.keys(object.data)[x]%>" placeholder="Option 2" autocomplete="off">
+                                    </div>
+                                  </div>
+                                  <% } %>
+                                </div>
+                                <% } %>
+
+                      <span id="fooBar"></span>
+                    </div>
+                    <div class="boxdiv" id="box2">
+                      <select name="element">
+                        <option value="text">TextBox</option>
+                        <option value="radio">Radio</option>
+                      </select>
+                      <input type="button" class="buttonadd buttongroup" value="Add Input" onclick="add(document.getElementById('FormDiv').element.value)">
+                    </div>
+                    <div class="boxdiv" id="box3"> 
+                        <button class="buttonsend buttongroup">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
