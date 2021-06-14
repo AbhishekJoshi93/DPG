@@ -87,6 +87,31 @@ app.get('/memberlogin', (req, res) => {
   res.render(__dirname + '/views/memberlogin.ejs')
 })
 
+app.get('/adminregister', (req, res) => {
+  res.render(__dirname + '/views/adminregister.ejs')
+})
+
+app.post('/adminregister', (req, res) => {
+  const user = new User({
+    username: req.body.username,
+    password: req.body.password,
+  })
+
+  User.register(
+    { username: req.body.username },
+    req.body.password,
+    function (err, user) {
+      if (err) {
+        res.redirect('/error')
+      } else {
+        passport.authenticate('local')(req, res, function () {
+          res.redirect('/adminlogin')
+        })
+      }
+    }
+  )
+})
+
 app.post('/adminlogin', (req, res) => {
   const user = new User({
     username: req.body.username,
