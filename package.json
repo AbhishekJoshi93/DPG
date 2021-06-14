@@ -5,6 +5,9 @@
   "scripts": {
     "start": "node app.js"
   },
+  "engines": {
+    "node": "14.9.0"
+  },
   "dependencies": {
     "chart.js": "^3.3.2",
     "connect-flash": "^0.1.1",

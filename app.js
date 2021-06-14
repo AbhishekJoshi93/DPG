@@ -565,7 +565,7 @@ app.post('/adminhome/updatemember', (req, res) => {
   }
 })
 
-let port = null
+let port = process.env.PORT
 
 if (port == null || port == '') {
   port = 3000
