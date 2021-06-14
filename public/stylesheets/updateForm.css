@@ -83,14 +83,20 @@ select {
 }
 
 #box3 {
-  display: block;
+  display: flex;
+  justify-content: center;
+}
+
+#box2 {
+  display: flex;
+  align-items: baseline;
 }
 
 #box3 .buttonsend,
 #box2 .buttonadd {
-  display: block;
-  width: 95%;
-  height: 2em;
+  text-align: center;
+  width: 25%;
+  height: 2.5em;
 }
 
 #box3 select,

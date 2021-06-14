@@ -338,17 +338,27 @@ app.post('/adminhome/createForm/addForm', (req, res) => {
 app.post('/adminhome/createForm/addForm/addZone', (req, res) => {
   if (req.isAuthenticated()) {
     if (req.user.admin) {
-      Form.findById(req.body.Id, (err, formfound) => {
-        formfound.zone = req.body.zone
-        formfound.save(function () {
-          User.findById(req.user.id, (err, foundUser) => {
-            foundUser.form.push(req.body.zone)
-            foundUser.save(function () {
-              res.redirect('/adminhome')
+      if (req.body.zone == 'Zone' || req.body.zone == '') {
+        Form.findByIdAndRemove(req.body.Id, (err) => {
+          if (err) {
+            res.redirect('/adminhome')
+          } else {
+            res.redirect('/adminhome')
+          }
+        })
+      } else {
+        Form.findById(req.body.Id, (err, formfound) => {
+          formfound.zone = req.body.zone
+          formfound.save(function () {
+            User.findById(req.user.id, (err, foundUser) => {
+              foundUser.form.push(req.body.zone)
+              foundUser.save(function () {
+                res.redirect('/adminhome')
+              })
             })
           })
         })
-      })
+      }
     }
   } else {
     res.redirect('/adminlogin')
@@ -480,6 +490,73 @@ app.get('/adminhome/responses', (req, res) => {
           }
         }
       )
+    } else {
+      res.redirect('/adminlogin')
+    }
+  } else {
+    res.redirect('/adminlogin')
+  }
+})
+
+app.get('/adminhome/updatemember', (req, res) => {
+  if (req.isAuthenticated()) {
+    if (req.user.admin) {
+      const zone = req.query.zone
+      const username = req.query.username
+      const password = req.query.password
+
+      Member.find(
+        {
+          $and: [
+            { username: username },
+            { password: password },
+            { zone: zone },
+          ],
+        },
+        (err, result) => {
+          if (err) {
+            res.redirect('/error')
+          } else {
+            if (result[0] == undefined) {
+              res.redirect('/error')
+            } else {
+              res.render(__dirname + '/views/updateMember.ejs', {
+                obj: result[0],
+              })
+            }
+          }
+        }
+      )
+    } else {
+      res.redirect('/adminlogin')
+    }
+  } else {
+    res.redirect('/adminlogin')
+  }
+})
+
+app.post('/adminhome/updatemember', (req, res) => {
+  if (req.isAuthenticated()) {
+    if (req.user.admin) {
+      const zone = req.body.zonehidden
+      const username = req.body.username
+      const password = req.body.password
+
+      Member.find({ zone: zone }, (err, result) => {
+        if (err) {
+          res.redirect('/error')
+        } else {
+          if (result[0] == undefined) {
+            res.redirect('/error')
+          } else {
+            result[0].username = username
+            result[0].password = password
+            result[0].save(function () {
+              res.redirect('/adminhome/createMember')
+            })
+          }
+        }
+      })
     } else {
       res.redirect('/adminlogin')
     }

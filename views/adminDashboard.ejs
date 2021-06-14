@@ -3,27 +3,31 @@
   <head>
     <title>DPG</title>
     <link rel='stylesheet' href='/stylesheets/adminDashboard.css' />
+    <link rel='stylesheet' href='/stylesheets/common.css' />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="MainDiv">
       <div id="HeaderDiv">
         <div id="img1">
           <a href="/adminhome">
-            <img src="/images/create_form.svg"/>
-            <p>Create Form</p>
+              <img src="/images/create_form.svg"/>
+              <p>Create Form</p>
           </a>
         </div>
         <div id="img2">
           <a href="/adminhome/createMember">
-            <img src="/images/create_member.svg"/>
-            <p>Create Member</p>
+              <img src="/images/create_member.svg"/>
+              <p>Create Member</p>
           </a>
         </div>
           <form method="GET" action="/adminlogout">
+            <p></p>
             <button type="submit" id="Btn-Logout">Logout</button>
           </form>
       </div>
-      <div id="CenterDiv">
+      <div id="CenterDiv" style="overflow-x: auto;">
         <div>
           <h3 class="BorderBottom">Create Form</h3>
           <div class="createformgrid">

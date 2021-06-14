@@ -3,6 +3,9 @@
   <head>
     <title>DPG</title>
     <link rel='stylesheet' href='/stylesheets/memberHome.css' />
+    <link rel='stylesheet' href='/stylesheets/common.css' />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="MainDiv">
@@ -13,7 +16,7 @@
         <% }else{ %>
           <form method="POST" action="/memberhome/submit">
             <h1>Form</h1>
-              <p>User Name: <%=memberobj.username%></p>
+              <p>Username: <%=memberobj.username%></p>
               <p>Form Name: <%=f.formname%></p>
               <p>Zone: <%=memberobj.zone%></p>
               <input type="hidden" name="username" value="<%=memberobj.username%>" >
@@ -23,33 +26,27 @@
               <div>
                 <% if((Object.keys(f.data)[x]).substring(0,4) == 'Text'){ %>
                   <div class="LabelInput">
-                    <div>
-                      <label for="<%=f.data[Object.keys(f.data)[x]]%>"><%=f.data[Object.keys(f.data)[x]]%>:</label>
-                    </div>
-                    <div>
-                      <input type="text" name="<%=f.data[Object.keys(f.data)[x]]%>" id="<%=f.data[Object.keys(f.data)[x]]%>" placeholder="Enter <%=f.data[Object.keys(f.data)[x]]%>" autocomplete="off">
-                    </div>
+                   
+                      <label for="<%=f.data[Object.keys(f.data)[x]]%>"><%=f.data[Object.keys(f.data)[x]]%>:</label><br>
+                      <input type="text" name="<%=f.data[Object.keys(f.data)[x]]%>" id="<%=f.data[Object.keys(f.data)[x]]%>" placeholder="Enter <%=f.data[Object.keys(f.data)[x]]%>" autocomplete="off" required>
                   </div>
                   <% }else if((Object.keys(f.data)[x]).substring(0,5) == 'Radio'){ var r = x %>
                     <div class="LabelInput">
-                      <div>
-                        <label><%=f.data[Object.keys(f.data)[r]]%>:</label>
-                      </div>
+                        <label><%=f.data[Object.keys(f.data)[r]]%>:</label><br>
                       <% x++ %>
-                      <div>
-                        <input type="radio" id="<%=f.data[Object.keys(f.data)[x]]%>" name="<%=f.data[Object.keys(f.data)[r]]%>" value="<%=f.data[Object.keys(f.data)[x]]%>">
-                        <label for="<%=f.data[Object.keys(f.data)[x]]%>"><%=f.data[Object.keys(f.data)[x]]%></label>
-                      </div>
+                      <input type="radio" id="<%=f.data[Object.keys(f.data)[x]]%>" name="<%=f.data[Object.keys(f.data)[r]]%>" value="<%=f.data[Object.keys(f.data)[x]]%>" required>
+                      <label for="<%=f.data[Object.keys(f.data)[x]]%>"><%=f.data[Object.keys(f.data)[x]]%></label>
+                        
                         <% x++ %>
-                      <div>
                         <input type="radio" id="<%=f.data[Object.keys(f.data)[x]]%>" name="<%=f.data[Object.keys(f.data)[r]]%>" value="<%=f.data[Object.keys(f.data)[x]]%>">
                         <label for="<%=f.data[Object.keys(f.data)[x]]%>"><%=f.data[Object.keys(f.data)[x]]%></label>
-                      </div>
                     </div>
                     <% } %>
                   </div>
                   <% } %>
-                  <button type="submit" id="Btn-Login">Submit</button>
+                  <div style="display: flex; justify-content: center;">
+                    <button type="submit" id="Btn-Login">Submit</button>
+                  </div>
                 </form>
         <% } %>
             </div>

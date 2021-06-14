@@ -3,6 +3,9 @@
   <head>
     <title>DPG</title>
     <link rel='stylesheet' href='/stylesheets/updateForm.css' />
+    <link rel='stylesheet' href='/stylesheets/common.css' />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script language="Javascript">
       var x = "<%=object.fields%>"
       var y = "<%=object.totalfields%>"
@@ -37,9 +40,16 @@
         element.setAttribute("placeholder", 'Text Field-'+x);
         element.setAttribute("name", 'Text'+x);
         element.setAttribute("autocomplete", 'off');
+        element.setAttribute("required", 'true')
         
         element.classList.add('ElementClass')
         var foo = document.getElementById("fooBar");
+        
+        var number = document.createElement("span");
+        number.innerHTML += `Field${x}`
+
+        foo.appendChild(number);
+
         foo.appendChild(element);
       }else if(type == 'radio'){
         y++
@@ -47,11 +57,18 @@
         y++
         var foo = document.getElementById("fooBar");
 
+        var number = document.createElement("span");
+        number.innerHTML += `Field${x}`
+
+        foo.appendChild(number)
+
         var element = document.createElement("input");
         element.setAttribute("type", 'text');
         element.setAttribute("placeholder", 'Radio Field-'+x);
         element.setAttribute("name", 'Radio'+x);
         element.setAttribute("autocomplete", 'off');
+        element.setAttribute("required", 'true')
+
         foo.appendChild(element);
 
         var element1 = document.createElement("input");
@@ -59,6 +76,8 @@
         element1.setAttribute("placeholder", 'Option 1');
         element1.setAttribute("name", 'Radio'+x+'1');
         element1.setAttribute("autocomplete", 'off');
+        element1.setAttribute("required", 'true')
+
         foo.appendChild(element1);
 
         var element2 = document.createElement("input");
@@ -66,6 +85,8 @@
         element2.setAttribute("placeholder", 'Option 2');
         element2.setAttribute("name", 'Radio'+x+'2');
         element2.setAttribute("autocomplete", 'off');
+        element2.setAttribute("required", 'true')
+
         foo.appendChild(element2);
 
         element.classList.add('ElementClass')
@@ -111,12 +132,13 @@
                             <div>
                               <% if((Object.keys(object.data)[x]).substring(0,4) == 'Text'){ %>
                                 <div>
+                                  <span><%=Object.keys(object.data)[x]%></span>
                                     <input class="ElementClass" type="text" value="<%=object.data[Object.keys(object.data)[x]]%>" name="<%=Object.keys(object.data)[x]%>" id="<%=Object.keys(object.data)[x]%>" placeholder="Enter <%=Object.keys(object.data)[x]%>" autocomplete="off">
-                                  
                                 </div>
                                 <% }else if((Object.keys(object.data)[x]).substring(0,5) == 'Radio'){ var r = x %>
                                   <div>
                                     <div>
+                                      <span><%=Object.keys(object.data)[x]%></span>
                                       <input class="ElementClass" type="text" value="<%=object.data[Object.keys(object.data)[x]]%>" name="<%=Object.keys(object.data)[x]%>" id="<%=Object.keys(object.data)[x]%>" placeholder="Enter <%=Object.keys(object.data)[x]%>" autocomplete="off">
                                     </div>
                                     <% x++ %>
@@ -139,10 +161,10 @@
                         <option value="text">TextBox</option>
                         <option value="radio">Radio</option>
                       </select>
-                      <input type="button" class="buttonadd buttongroup" value="Add Input" onclick="add(document.getElementById('FormDiv').element.value)">
-                    </div>
+                      <input type="button" value="Add Input" class="buttonadd buttongroup" onclick="add(document.getElementById('FormDiv').element.value)">
+                  </div>
                     <div class="boxdiv" id="box3"> 
-                        <button class="buttonsend buttongroup">Update</button>
+                        <button type="submit" class="buttonsend buttongroup">Update</button>
                     </div>
                 </div>
             </form>

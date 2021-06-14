@@ -3,6 +3,15 @@
   <head>
     <title>DPG</title>
     <link rel='stylesheet' href='/stylesheets/responses.css' />
+    <link rel='stylesheet' href='/stylesheets/common.css' />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src=
+    "//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+    </script>
+    <script src=
+    "//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
@@ -25,12 +34,9 @@
           </form>
       </div>
       <div id="CenterDiv">
-        <table class="styled-table">
+        <table class="styled-table" id="tableId">
           <thead>
             <tr>
-              <th>User Name</th>
-              <th>Password</th>
-              <th>Zone</th>
               <% for(var x = 0; x < object.totalfields; x++){ %>
                   <% if((Object.keys(object.data)[x]).substring(0,4) == 'Text'){ %>
                       <th><%=object.data[Object.keys(object.data)[x]]%></th>
@@ -44,20 +50,24 @@
           <tbody>
             <% object.response.forEach(function(entry, index){ %>
               <tr>
-                <% for(var y = 0; y < (object.fields+3); y++){ %>
-                  <% if(entry[Object.keys(entry)[y]] == undefined){ %>
-                    <th>-</th>
-                  <% }else{ %>
-                    <th><%=entry[Object.keys(entry)[y]]%></th>
-                  <% } %>
+                <% for(var y = 3; y < (object.fields+3); y++){ %>
+                  <th><%=entry[Object.keys(entry)[y]]%></th>
                 <% } %>
               </tr>
             <% }) %>
           </tbody>
         </table>
+        <div>
+          <button id="exportbtn" onclick="Export('<%-object.zone%>')">Click to Export</button>
+        </div>
       </div>
     </div>
     <script>
+      function Export(x) {
+          $("#tableId").table2excel({
+              filename: `Data-${x}.xls`
+          });
+      }
     </script>
   </body>
 </html>

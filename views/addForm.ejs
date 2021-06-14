@@ -3,6 +3,9 @@
   <head>
     <title>DPG</title>
     <link rel='stylesheet' href='/stylesheets/addForm.css' />
+    <link rel='stylesheet' href='/stylesheets/common.css' />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script language="Javascript">
       var x = "<%=number%>"
       var y = "<%=number%>"
@@ -32,26 +35,40 @@
       x++
       if(type === 'text'){
         y++
+
         var element = document.createElement("input");
         element.setAttribute("type", 'text');
         element.setAttribute("placeholder", 'Text Field-'+x);
         element.setAttribute("name", 'Text'+x);
         element.setAttribute("autocomplete", 'off');
+        element.setAttribute("required", 'true')
         
         element.classList.add('ElementClass')
         var foo = document.getElementById("fooBar");
-        foo.appendChild(element);
+        
+        var number = document.createElement("span");
+        number.innerHTML += `Field${x}`
+
+        foo.appendChild(number);
+        foo.appendChild(element)
       }else if(type == 'radio'){
         y++
         y++
         y++
         var foo = document.getElementById("fooBar");
 
+        var number = document.createElement("span");
+        number.innerHTML += `Field${x}`
+
+        foo.appendChild(number)
+
         var element = document.createElement("input");
         element.setAttribute("type", 'text');
         element.setAttribute("placeholder", 'Radio Field-'+x);
         element.setAttribute("name", 'Radio'+x);
         element.setAttribute("autocomplete", 'off');
+        element.setAttribute("required", 'true')
+
         foo.appendChild(element);
 
         var element1 = document.createElement("input");
@@ -59,6 +76,7 @@
         element1.setAttribute("placeholder", 'Option 1');
         element1.setAttribute("name", 'Radio'+x+'1');
         element1.setAttribute("autocomplete", 'off');
+        element1.setAttribute("required", 'true')
         foo.appendChild(element1);
 
         var element2 = document.createElement("input");
@@ -66,6 +84,7 @@
         element2.setAttribute("placeholder", 'Option 2');
         element2.setAttribute("name", 'Radio'+x+'2');
         element2.setAttribute("autocomplete", 'off');
+        element2.setAttribute("required", 'true')
         foo.appendChild(element2);
 
         element.classList.add('ElementClass')
@@ -101,7 +120,7 @@
                     <div class="boxdiv" id="box1">
                         <div>
                             <label for="formname">Enter Form Name:</label><br>
-                            <input type="text" name="formname" placeholder="Form Name" autocomplete="off" required><br>
+                            <input style="padding: 2%; font-size: 120%;" type="text" name="formname" placeholder="Form Name" autocomplete="off" required><br>
                         </div>
                     </div>
                     <div class="boxdiv" id="box0">
@@ -115,7 +134,7 @@
                       <input type="button" class="buttonadd buttongroup" value="Add Input" onclick="add(document.getElementById('FormDiv').element.value)">
                     </div>
                     <div class="boxdiv" id="box3"> 
-                        <button class="buttonsend buttongroup">Select Zone</button>
+                        <button type="submit" class="buttonsend buttongroup">Next</button>
                     </div>
                 </div>
             </form>

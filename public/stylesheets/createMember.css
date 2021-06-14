@@ -57,6 +57,7 @@ a {
 .boxdiv {
   background-color: white;
   margin: 5px;
+  margin-left: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
 
@@ -97,4 +98,53 @@ a {
 
 .justspacing {
   margin: 10px;
+}
+
+.extrabox {
+  margin: 2%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.extrabox img {
+  width: 25px;
+}
+
+#deleteid {
+  background-color: #db2323;
+  padding: 20px;
+  width: 65%;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  margin: 5px;
+  width: 120px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip .tooltiptext {
+  width: 120px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

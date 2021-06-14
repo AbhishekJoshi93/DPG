@@ -3,6 +3,9 @@
   <head>
     <title>DPG</title>
     <link rel='stylesheet' href='/stylesheets/createMember.css' />
+    <link rel='stylesheet' href='/stylesheets/common.css' />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="MainDiv">
@@ -23,7 +26,7 @@
             <button type="submit" id="Btn-Logout">Logout</button>
           </form>
       </div>
-      <div id="CenterDiv">
+      <div id="CenterDiv" style="overflow-x: auto;">
         <div>
           <h3 class="BorderBottom">Members</h3>
           <div class="cmgrid">
@@ -42,9 +45,13 @@
                   </div>
                   <div class="membercontent"> 
                     <h3>Member <%=index+1%></h3>
-                    <p>Username: <%=member.username%></p>
-                    <p>Password: <%=member.password%></p>
-                    <p>Zone: <%=member.zone%></p>
+                      <p>Username: <%=member.username%></p>
+                      <p>Password: <%=member.password%></p>
+                      <p>Zone: <%=member.zone%></p>
+                    <div class="extrabox">
+                      <p class="tooltip"><a href="/adminhome/updatemember?zone=<%=member.zone%>&username=<%=member.username%>&password=<%=member.password%>"><span><img src="/images/update.svg"><span class="tooltiptext">Update</span></span></a></p>
+                      <p class="tooltip" onclick="magic('Username: <%=member.username%>, Password: <%=member.password%>, Zone: <%=member.zone%>')"><span><img src="/images/copy.png"><span class="tooltiptext">Copy</span></span></p>
+                    </div>
                   </div>
                 </div>
               <% }) %>
@@ -53,5 +60,10 @@
         </div>
       </div>
     </div>
+    <script>
+      function magic(x){
+        window.prompt("Copy to clipboard: Ctrl+C, Enter", x);
+      }
+    </script>
   </body>
 </html>

@@ -13,7 +13,8 @@ body {
 input {
   margin-top: 1%;
   width: 150%;
-  height: 2em;
+  height: 2.5em;
+  outline: none;
 }
 
 #ImageDiv {
@@ -39,5 +40,5 @@ input {
 }
 
 .LabelInput {
-  padding: 5% 0 7% 0;
+  padding: 5% 0;
 }

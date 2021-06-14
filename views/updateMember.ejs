@@ -28,21 +28,22 @@
       </div>
       <div id="CenterDiv">
         <div id="FormDiv">
-          <form action="/adminhome/createMember/addMember" method="post" class="boxdiv">
-            <h1>Add New Member</h1>
+          <form action="/adminhome/updatemember" method="post" class="boxdiv">
+            <h1>Update Member</h1>
             <div class="LabelInput">
               <label for="username">Enter ID</label><br>
-              <input type="text" name="username" placeholder="Enter ID" autocomplete="off" required><br>
+              <input type="text" name="username" placeholder="Enter ID" autocomplete="off" value="<%=obj.username%>" required><br>
             </div>
             <div class="LabelInput">
               <label for="password">Password</label><br>
-              <input type="password" name="password" placeholder="Password" autocomplete="off" required><br>
+              <input type="password" name="password" placeholder="Password" autocomplete="off" value="<%=obj.password%>" required><br>
             </div>
             <div class="LabelInput">
               <label for="zone">Enter Zone</label><br>
-              <input type="text" name="zone" placeholder="Zone" autocomplete="off" required><br>
+              <input type="text" name="zone" placeholder="Zone" autocomplete="off" value="<%=obj.zone%>" disabled required><br>
             </div>
-            <button type="submit" id="Btn-Login">Create Member</button>
+            <input type="hidden" name="zonehidden" placeholder="Zone" autocomplete="off" value="<%=obj.zone%>" required><br>
+            <button type="submit" id="Btn-Login">Update</button>
           </form>
         </div>
       </div>

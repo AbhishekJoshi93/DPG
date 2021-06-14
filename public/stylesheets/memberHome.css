@@ -60,7 +60,7 @@ a {
 
 .boxdiv {
   background-color: white;
-  width: 20%;
+  width: 30%;
   padding: 50px;
 }
 
@@ -69,9 +69,14 @@ a {
   margin: 5px;
 }
 
-input {
+input[type='text'] {
+  width: 100%;
   height: 2em;
-  min-width: 20px;
+}
+
+input[type='radio'] {
+  border: 0px;
+  height: 2em;
 }
 
 #ImageDiv {
@@ -83,26 +88,19 @@ input {
   width: 100%;
 }
 
-#FormDiv {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 200px;
-}
-
 #Btn-Login {
-  display: block;
-  width: 103%;
+  width: 40%;
+  text-align: center;
   background-color: #239fdb;
   color: white;
   border: none;
-  height: 2em;
+  height: 3em;
+  padding: 5px;
+  margin: 2%;
 }
 
 .LabelInput {
   padding: 0% 0 3% 0;
-  display: flex;
-  align-items: baseline;
 }
 
 .LabelInput label {

@@ -1,0 +1,29 @@
+input {
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  padding: 1%;
+}
+
+button {
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+select {
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  height: 2.5em;
+}
+
+tr,
+th {
+  font-family: 'Poppins', sans-serif;
+}
