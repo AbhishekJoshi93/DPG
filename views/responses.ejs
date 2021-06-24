@@ -43,7 +43,13 @@
                     <% }else if((Object.keys(object.data)[x]).substring(0,5) == 'Radio'){ %>
                       <th><%=object.data[Object.keys(object.data)[x]]%></th>
                       <% x = x+2 %>
-                    <% } %>
+                      <% }else if((Object.keys(object.data)[x]).substring(0,6) == 'Number'){ %>
+                        <th><%=object.data[Object.keys(object.data)[x]]%></th>
+                        <% }else if((Object.keys(object.data)[x]).substring(0,4) == 'Date'){ %>
+                          <th><%=object.data[Object.keys(object.data)[x]]%></th>
+                          <% }else if((Object.keys(object.data)[x]).substring(0,4) == 'Time'){ %>
+                            <th><%=object.data[Object.keys(object.data)[x]]%></th>
+                          <% } %>
               <% } %>
             </tr>
           </thead>

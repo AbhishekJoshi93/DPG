@@ -41,7 +41,25 @@
                         <input type="radio" id="<%=f.data[Object.keys(f.data)[x]]%>" name="<%=f.data[Object.keys(f.data)[r]]%>" value="<%=f.data[Object.keys(f.data)[x]]%>">
                         <label for="<%=f.data[Object.keys(f.data)[x]]%>"><%=f.data[Object.keys(f.data)[x]]%></label>
                     </div>
-                    <% } %>
+                    <% }else if((Object.keys(f.data)[x]).substring(0,6) == 'Number'){ %>
+                      <div class="LabelInput">
+                   
+                        <label for="<%=f.data[Object.keys(f.data)[x]]%>"><%=f.data[Object.keys(f.data)[x]]%>:</label><br>
+                        <input type="number" name="<%=f.data[Object.keys(f.data)[x]]%>" id="<%=f.data[Object.keys(f.data)[x]]%>" placeholder="Enter <%=f.data[Object.keys(f.data)[x]]%>" autocomplete="off" required>
+                    </div>
+                      <% }else if((Object.keys(f.data)[x]).substring(0,4) == 'Time'){ %>
+                        <div class="LabelInput">
+                   
+                          <label for="<%=f.data[Object.keys(f.data)[x]]%>"><%=f.data[Object.keys(f.data)[x]]%>:</label><br>
+                          <input type="time" name="<%=f.data[Object.keys(f.data)[x]]%>" id="<%=f.data[Object.keys(f.data)[x]]%>" placeholder="Enter <%=f.data[Object.keys(f.data)[x]]%>" autocomplete="off" required>
+                      </div>
+                        <% }else if((Object.keys(f.data)[x]).substring(0,4) == 'Date'){ %>
+                          <div class="LabelInput">
+                   
+                            <label for="<%=f.data[Object.keys(f.data)[x]]%>"><%=f.data[Object.keys(f.data)[x]]%>:</label><br>
+                            <input type="date" name="<%=f.data[Object.keys(f.data)[x]]%>" id="<%=f.data[Object.keys(f.data)[x]]%>" placeholder="Enter <%=f.data[Object.keys(f.data)[x]]%>" autocomplete="off" required>
+                        </div>
+                          <% } %>
                   </div>
                   <% } %>
                   <div style="display: flex; justify-content: center;">

@@ -91,6 +91,61 @@
         element1.classList.add('ElementClass0')
         element2.classList.add('ElementClass0')
 
+      }else if (type === 'number'){
+        y++
+
+        var element = document.createElement("input");
+        element.setAttribute("type", 'text');
+        element.setAttribute("placeholder", 'Number Field-'+x);
+        element.setAttribute("name", 'Number'+x);
+        element.setAttribute("autocomplete", 'off');
+        element.setAttribute("required", 'true')
+        
+        element.classList.add('ElementClass')
+        var foo = document.getElementById("fooBar");
+        
+        var number = document.createElement("span");
+        number.innerHTML += `Field${x}`
+
+        foo.appendChild(number);
+        foo.appendChild(element)
+      }
+      else if (type === 'time'){
+        y++
+
+        var element = document.createElement("input");
+        element.setAttribute("type", 'text');
+        element.setAttribute("placeholder", 'Time Field-'+x);
+        element.setAttribute("name", 'Time'+x);
+        element.setAttribute("autocomplete", 'off');
+        element.setAttribute("required", 'true')
+        
+        element.classList.add('ElementClass')
+        var foo = document.getElementById("fooBar");
+        
+        var number = document.createElement("span");
+        number.innerHTML += `Field${x}`
+
+        foo.appendChild(number);
+        foo.appendChild(element)
+      }else if (type === 'date'){
+        y++
+
+        var element = document.createElement("input");
+        element.setAttribute("type", 'text');
+        element.setAttribute("placeholder", 'Date Field-'+x);
+        element.setAttribute("name", 'Date'+x);
+        element.setAttribute("autocomplete", 'off');
+        element.setAttribute("required", 'true')
+        
+        element.classList.add('ElementClass')
+        var foo = document.getElementById("fooBar");
+        
+        var number = document.createElement("span");
+        number.innerHTML += `Field${x}`
+
+        foo.appendChild(number);
+        foo.appendChild(element)
       }
     }
         </script>
@@ -130,6 +185,9 @@
                       <select name="element">
                         <option value="text">TextBox</option>
                         <option value="radio">Radio</option>
+                        <option value="date">Date</option>
+                        <option value="time">Time</option>
+                        <option value="number">Number</option>
                       </select>
                       <input type="button" class="buttonadd buttongroup" value="Add Input" onclick="add(document.getElementById('FormDiv').element.value)">
                     </div>

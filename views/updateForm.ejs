@@ -93,6 +93,61 @@
         element1.classList.add('ElementClass0')
         element2.classList.add('ElementClass0')
 
+      }else if (type === 'number'){
+        y++
+
+        var element = document.createElement("input");
+        element.setAttribute("type", 'text');
+        element.setAttribute("placeholder", 'Number Field-'+x);
+        element.setAttribute("name", 'Number'+x);
+        element.setAttribute("autocomplete", 'off');
+        element.setAttribute("required", 'true')
+        
+        element.classList.add('ElementClass')
+        var foo = document.getElementById("fooBar");
+        
+        var number = document.createElement("span");
+        number.innerHTML += `Field${x}`
+
+        foo.appendChild(number);
+        foo.appendChild(element)
+      }
+      else if (type === 'time'){
+        y++
+
+        var element = document.createElement("input");
+        element.setAttribute("type", 'text');
+        element.setAttribute("placeholder", 'Time Field-'+x);
+        element.setAttribute("name", 'Time'+x);
+        element.setAttribute("autocomplete", 'off');
+        element.setAttribute("required", 'true')
+        
+        element.classList.add('ElementClass')
+        var foo = document.getElementById("fooBar");
+        
+        var number = document.createElement("span");
+        number.innerHTML += `Field${x}`
+
+        foo.appendChild(number);
+        foo.appendChild(element)
+      }else if (type === 'date'){
+        y++
+
+        var element = document.createElement("input");
+        element.setAttribute("type", 'text');
+        element.setAttribute("placeholder", 'Date Field-'+x);
+        element.setAttribute("name", 'Date'+x);
+        element.setAttribute("autocomplete", 'off');
+        element.setAttribute("required", 'true')
+        
+        element.classList.add('ElementClass')
+        var foo = document.getElementById("fooBar");
+        
+        var number = document.createElement("span");
+        number.innerHTML += `Field${x}`
+
+        foo.appendChild(number);
+        foo.appendChild(element)
       }
     }
         </script>
@@ -150,7 +205,22 @@
                                       <input class="ElementClass0" type="text" value="<%=object.data[Object.keys(object.data)[x]]%>" name="<%=Object.keys(object.data)[x]%>" id="<%=Object.keys(object.data)[x]%>" placeholder="Option 2" autocomplete="off">
                                     </div>
                                   </div>
-                                  <% } %>
+                                  <% }else if((Object.keys(object.data)[x]).substring(0,6) == 'Number'){ %>
+                                    <div>
+                                      <span><%=Object.keys(object.data)[x]%></span>
+                                        <input class="ElementClass" type="text" value="<%=object.data[Object.keys(object.data)[x]]%>" name="<%=Object.keys(object.data)[x]%>" id="<%=Object.keys(object.data)[x]%>" placeholder="Enter <%=Object.keys(object.data)[x]%>" autocomplete="off">
+                                    </div>
+                                    <% }else if((Object.keys(object.data)[x]).substring(0,4) == 'Date'){ %>
+                                      <div>
+                                        <span><%=Object.keys(object.data)[x]%></span>
+                                          <input class="ElementClass" type="text" value="<%=object.data[Object.keys(object.data)[x]]%>" name="<%=Object.keys(object.data)[x]%>" id="<%=Object.keys(object.data)[x]%>" placeholder="Enter <%=Object.keys(object.data)[x]%>" autocomplete="off">
+                                      </div>
+                                      <% }else if((Object.keys(object.data)[x]).substring(0,4) == 'Time'){ %>
+                                        <div>
+                                          <span><%=Object.keys(object.data)[x]%></span>
+                                            <input class="ElementClass" type="text" value="<%=object.data[Object.keys(object.data)[x]]%>" name="<%=Object.keys(object.data)[x]%>" id="<%=Object.keys(object.data)[x]%>" placeholder="Enter <%=Object.keys(object.data)[x]%>" autocomplete="off">
+                                        </div>
+                                        <% } %>
                                 </div>
                                 <% } %>
 
@@ -160,6 +230,9 @@
                       <select name="element">
                         <option value="text">TextBox</option>
                         <option value="radio">Radio</option>
+                        <option value="date">Date</option>
+                        <option value="time">Time</option>
+                        <option value="number">Number</option>
                       </select>
                       <input type="button" value="Add Input" class="buttonadd buttongroup" onclick="add(document.getElementById('FormDiv').element.value)">
                   </div>
